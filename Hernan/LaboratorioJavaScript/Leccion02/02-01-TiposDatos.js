@@ -9,14 +9,14 @@ console.log(typeof nombre);
 nombre = 7;
 console.log(typeof nombre);
 nombre = 12.5;
-console.log(typeof nombre)
+console.log(typeof nombre);
 var numero = 3000; // Tipo numérico
 console.log(numero);
 var objeto = {
     nombre: "Ariel",
     apellido: "Betancud",
     telefono: "123456789"
-}
+};
 console.log(objeto);
 
 // Tipo de dato booleano (Bandera)
@@ -40,5 +40,26 @@ class persona {
         this.nombre = nombre;   // this. hace referencia a los atributos de nuestra clase
         this.apellido = apellido;
     }
-}
+};
 console.log(typeof persona) // Una clase es una función
+
+// Tipo de dato undefined
+var x;
+console.log(typeof x);
+
+x = undefined;
+console.log(typeof x);
+
+// null: significa ausencia de valor
+var y = null; // null no es un tipo de dato, pero su origen es de tipo object
+console.log(typeof y);
+
+// Tipo de dato array y Empty String
+var autos = ['Citroen','Audi','BMW','Ford'];
+console.log(autos);
+console.log(typeof autos); // Preguntamos que tipo de dato es
+var z = '';
+console.log(z); // Es una cadena vacía
+console.log(typeof z);
+
+
