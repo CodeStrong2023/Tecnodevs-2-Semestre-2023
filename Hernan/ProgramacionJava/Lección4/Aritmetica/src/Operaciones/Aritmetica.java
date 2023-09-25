@@ -23,6 +23,9 @@ public class Aritmetica {
         //El argumento arg1 se asigna al atributa this.a
         this.b = arg2; //this, se crea automáticamente, no es necesario ponerlo
         //Una vez sale de clase se elimina
+        //Suele usarse para que el código sea más legible. Buena práctica.
+        //Pueden tener el mismo nombre. Se diferencia atributo de argumento.
+        
         //return a + b;
         return sumarConRetorno();
         //Un método llamando a otro método
