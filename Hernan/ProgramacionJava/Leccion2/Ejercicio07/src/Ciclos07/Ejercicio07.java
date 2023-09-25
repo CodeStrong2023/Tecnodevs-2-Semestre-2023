@@ -21,7 +21,7 @@ public class Ejercicio07 {
         }
         else {
             promedio = (float)suma / conteo;
-            JOptionPane.showMessageDialog(null, "\n El promedio de los números in4-gresados es: " + promedio);
+            JOptionPane.showMessageDialog(null, "\n El promedio de los números ingresados es: " + promedio);
         }
     }
 }
