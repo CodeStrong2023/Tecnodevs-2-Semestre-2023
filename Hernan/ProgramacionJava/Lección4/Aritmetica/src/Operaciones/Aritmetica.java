@@ -5,8 +5,18 @@ public class Aritmetica {
     //Atributos de la clase
     int a;
     int b;
-    //El constructor es un método especial
     
+    //El constructor es un método especial
+    public Aritmetica(){//Constructor vacío
+        //Se crea automáticamente, no es necesario ponerlo
+        System.out.println("Se esta ejercutando el constructor número 1");
+    }
+    public Aritmetica(int a, int b){
+        //Esto es sobrecarga de constructores
+        this.a = a;
+        this.b = b;
+        System.out.println("Se esta ejecutando el constructor número 2");
+    }
     
     //Método
     public void sumarNumeros() {
