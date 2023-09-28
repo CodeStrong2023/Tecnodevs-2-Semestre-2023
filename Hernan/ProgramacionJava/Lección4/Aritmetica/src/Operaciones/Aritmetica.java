@@ -13,7 +13,8 @@ public class Aritmetica {
     }
     public Aritmetica(int a, int b){
         //Esto es sobrecarga de constructores
-        this.a = a;
+        this.a = a; //Al usar variables con nombre igual a un atributo es
+        //necesario poner this.
         this.b = b;
         System.out.println("Se esta ejecutando el constructor número 2");
     }
