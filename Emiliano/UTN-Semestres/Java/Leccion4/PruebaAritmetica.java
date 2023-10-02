@@ -15,11 +15,39 @@ public class PruebaAritmetica {
         System.out.println("Resultado: "+resultado);
 
         resultado = aritmetica1.sumarConArgumentos(12, 26);
-        System.out.println("Resultado usando argumentos = "+ resultado);   
+        System.out.println("Resultado usando argumentos = "+ resultado); 
+        Persona persona = new Persona("Emiliano"," Grossi");
+        System.out.println("persona: "+persona);
+        System.out.println("persona nombre: " + persona.nombre);
+        System.out.println("persona apellido: " + persona.app);
     }
 
     public static void miMetodo(){
         int a = 10;// Una variable esta limitada
 
+    }
+}
+// Nueva clase
+class Persona{
+    String nombre;
+    String app;
+    
+    Persona(String nombre, String app){
+        super();//Lamada al construnctor de la clase padre
+        this.nombre = nombre;
+        this.app = app;
+        System.out.println("Objeto persona usando this: "+this);
+    }
+
+}
+
+class Imprimir{
+    public Imprimir(){
+        super(); //el contructor de la clase padre, para reservar memoria
+    }
+
+    public void imprimir(Persona persona){
+        System.out.println("Persona desde la clase imprimir: "+persona);
+        System.out.println("Impresion del objeto actual (this)"+this);
     }
 }
