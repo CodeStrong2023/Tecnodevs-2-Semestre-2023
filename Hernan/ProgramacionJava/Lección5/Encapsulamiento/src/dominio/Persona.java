@@ -22,13 +22,18 @@ public class Persona {
     public double getSueldo() {
         return sueldo;
     }
-    public void setSueldo(){
+    public void setSueldo(double sueldo){
         this.sueldo = sueldo;
     }
     public boolean isEliminado() {
         return eliminado;
     }
-    public void setEliminado() {
+    public void setEliminado(boolean eliminado) {
         this.eliminado = eliminado;
+    }
+    public String toString(){  // Convierte en cadena cada atributo
+        return "Persona [nombre: "+this.nombre+
+                ", sueldo: "+this.sueldo+
+                ", eliminado: "+this.isEliminado()+"]";
     }
 }
