@@ -1,6 +1,6 @@
 
 package impuestos;
-
+import test.*;
 import java.text.DecimalFormat;
 import java.util.Random;
 import java.util.Scanner;
@@ -11,17 +11,21 @@ public class Impuestos {
     Random aleatorio = new Random();
     DecimalFormat formato = new DecimalFormat("0.00");
     // Atributos
-    private double monto_a_pagar = aleatorio.nextDouble()* 9999;
-    private boolean pagado;
-    private String[] empresa_prestadora;
     
+    private static double monto_a_pagar;
+    // private static double monto_a_pagar = monto_a_pagar0;
+    private static boolean pagado;
+    private static String[] empresa_prestadora;
+    private static double saldo_en_cuenta = 10000;
     
     // Constructor
     public Impuestos(boolean pagado, String[] empresa_prestadora){
         this.empresa_prestadora = empresa_prestadora;
         this.pagado = pagado;
+        this.monto_a_pagar = aleatorio.nextDouble()* 9999;
+        this.monto_a_pagar = monto_a_pagar;
+        
     }
-    
     // Métodos
     public double getMonto_a_pagar() {
         return monto_a_pagar;
@@ -31,13 +35,44 @@ public class Impuestos {
         this.monto_a_pagar = monto_a_pagar;
     }
 
+    public static double getSaldo_en_cuenta() {
+        return saldo_en_cuenta;
+    }
+
+    public static void setSaldo_en_cuenta(double saldo_en_cuenta) {
+        Impuestos.saldo_en_cuenta = saldo_en_cuenta;
+    }
+
+    public static boolean isPagado() {
+        return pagado;
+    }
+
+    public static void setPagado(boolean pagado) {
+        Impuestos.pagado = pagado;
+    }
+    
+
     @Override
     public String toString() {
-        DecimalFormat formato = new DecimalFormat("0.00");
         String montoFormateado = formato.format(monto_a_pagar);
         return "Impuestos{" + "monto_a_pagar=" + montoFormateado + ", pagado=" + pagado + '}';
     }
-
+    public String pagar_impuestos(double deuda, double saldo_en_cuenta, boolean pagado){
+        
+        if (deuda > saldo_en_cuenta){
+            System.out.println("Ha excedido su monto en cuenta");
+        } else if (deuda <= saldo_en_cuenta){
+            deuda -= deuda;
+            saldo_en_cuenta -= deuda;
+            System.out.println("Ha pagado el servicio");
+            pagado = true;
+        } else {
+            System.out.println("El ingreso no es válido");
+        }
+        System.out.println("Para volver al menú presione \"0\"");
+        return "";
+    }
+    
     public String menu_servicio(String[] opciones){
         
         System.out.println("\nSelecciones su empresa prestadora de servicio: ");
@@ -47,7 +82,9 @@ public class Impuestos {
         System.out.println("\nO presione \"0\" para volver al menú anterior\n");
         int opcion_servicio = Integer.parseInt(entrada.nextLine());
         if ((opcion_servicio != 0)&&(opcion_servicio <= opciones.length)){
-            
+            System.out.println("Su deuda es de: "+getMonto_a_pagar());
+            System.out.println("El saldo en su cuenta es de "+saldo_en_cuenta);
+            pagar_impuestos(getMonto_a_pagar(),getSaldo_en_cuenta() , isPagado());
         } else if (opcion_servicio == 0){
             
         } else {

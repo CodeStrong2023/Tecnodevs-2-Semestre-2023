@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class PruebaImpuesto {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
-        double saldo_en_cuenta = 10000;
+        
         
         
         String[] servicios_luz = {"1 - Edemsa","2 - Coop. Electrica Godoy Cruz"};
