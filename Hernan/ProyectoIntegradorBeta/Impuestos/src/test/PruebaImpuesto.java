@@ -9,10 +9,10 @@ public class PruebaImpuesto {
         double saldo_en_cuenta = 10000;
         
         
-        String[] servicios_luz = {"Edemsa","Coop. Electrica Godoy Cruz"};
-        String[] servicios_agua = {"AYSAM"};
-        String[] servicios_gas = {"Ecogas","Gas Cuyana"};
-        String[] servicios_internet = {"Claro", "Fibertel", "Movistar"};
+        String[] servicios_luz = {"1 - Edemsa","2 - Coop. Electrica Godoy Cruz"};
+        String[] servicios_agua = {"1 - AYSAM"};
+        String[] servicios_gas = {"1 - Ecogas","2 - Gas Cuyana"};
+        String[] servicios_internet = {"1 - Claro", "2 - Fibertel", "3 - Movistar"};
         
         Impuestos Luz = new Impuestos(false, servicios_luz);
         Impuestos Agua = new Impuestos(false, servicios_agua);
@@ -23,15 +23,16 @@ public class PruebaImpuesto {
         
         while (opcion != 0){
             System.out.println("Ingrese el servicio que desea pagar");
-            System.out.println("1 - Luz \n 2 - Agua \n 3 - Gas \n 4 - Internet \n 0 - Salir");
+            System.out.println(" 1 - Luz \n 2 - Agua \n 3 - Gas \n 4 - Internet \n 0 - Salir");
             opcion = Integer.parseInt(entrada.nextLine());
             
-            
-                Luz.menu_servicio(servicios_luz);
-            
-            
-            
-            
+            switch (opcion){
+                case 1: System.out.println("\n"+Luz.menu_servicio(servicios_luz)+"\n"); break;
+                case 2: System.out.println("\n"+Luz.menu_servicio(servicios_agua)+"\n"); break;
+                case 3: System.out.println("\n"+Luz.menu_servicio(servicios_gas)+"\n"); break;
+                case 4: System.out.println("\n"+Luz.menu_servicio(servicios_internet)+"\n"); break;
+                default: System.out.println("\nLa opción ingresada no es válida\n");
+            }
         }
         
     }
