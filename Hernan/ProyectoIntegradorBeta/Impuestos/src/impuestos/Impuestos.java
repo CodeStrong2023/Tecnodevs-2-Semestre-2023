@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class Impuestos {
     Random aleatorio = new Random();
+    DecimalFormat formato = new DecimalFormat("0.00");
     // Atributos
     private double monto_a_pagar = aleatorio.nextDouble()* 9999;
     private boolean pagado;
