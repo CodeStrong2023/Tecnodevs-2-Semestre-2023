@@ -1,0 +1,6 @@
+Investigando un poco, me di cuenta que no tengo los conocimientos necesarios
+aun para realizar la misma parte del proyecto que hice en pseInt por lo que
+creé esta carpeta para practicar, ver que puntos debo investigar y averiguar
+como realizar un código eficiente, ordenado y compacto.
+Vale decir que, de seguro, estará lleno de errores y no debe ser tomado como
+la contribución real al trabajo final de Java.
