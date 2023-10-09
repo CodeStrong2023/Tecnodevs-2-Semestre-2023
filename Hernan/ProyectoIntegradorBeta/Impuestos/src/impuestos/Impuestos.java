@@ -19,6 +19,9 @@ public class Impuestos {
     private static double saldo_en_cuenta = 10000;
     
     // Constructor
+    public Impuestos(){
+        
+    }
     public Impuestos(boolean pagado, String[] empresa_prestadora){
         this.empresa_prestadora = empresa_prestadora;
         this.pagado = pagado;
@@ -51,29 +54,23 @@ public class Impuestos {
         Impuestos.pagado = pagado;
     }
     
-
-    @Override
-    public String toString() {
-        String montoFormateado = formato.format(monto_a_pagar);
-        return "Impuestos{" + "monto_a_pagar=" + montoFormateado + ", pagado=" + pagado + '}';
+    
+    public boolean volver_a_entrar (boolean pagado){
+        pagado = true;
+        return pagado;
     }
-    public String pagar_impuestos(double deuda, double saldo_en_cuenta, boolean pagado){
+    public double Saldo (double deuda,double saldo_en_cuenta){
+        deuda = 0;
+        saldo_en_cuenta -= deuda;
+        return saldo_en_cuenta;
         
-        if (deuda > saldo_en_cuenta){
-            System.out.println("Ha excedido su monto en cuenta");
-        } else if (deuda <= saldo_en_cuenta){
-            deuda -= deuda;
-            saldo_en_cuenta -= deuda;
-            System.out.println("Ha pagado el servicio");
-            pagado = true;
-        } else {
-            System.out.println("El ingreso no es válido");
-        }
-        System.out.println("Para volver al menú presione \"0\"");
-        return "";
+    }
+    public double deuda_pagada(double deuda){
+        deuda = 0;
+        return deuda;
     }
     
-    public String menu_servicio(String[] opciones){
+    public String menu_servicio(String[] opciones, double deuda_servicio){
         
         System.out.println("\nSelecciones su empresa prestadora de servicio: ");
         for (int i = 0; i <= opciones.length -1; i++){
@@ -82,19 +79,37 @@ public class Impuestos {
         System.out.println("\nO presione \"0\" para volver al menú anterior\n");
         int opcion_servicio = Integer.parseInt(entrada.nextLine());
         if ((opcion_servicio != 0)&&(opcion_servicio <= opciones.length)){
-            System.out.println("Su deuda es de: "+getMonto_a_pagar());
-            System.out.println("El saldo en su cuenta es de "+saldo_en_cuenta);
-            pagar_impuestos(getMonto_a_pagar(),getSaldo_en_cuenta() , isPagado());
+            
+            pagar_impuestos(deuda_servicio,saldo_en_cuenta,pagado);
         } else if (opcion_servicio == 0){
             
         } else {
             System.out.println("\nLa opción ingresada no es válida\n");
-            menu_servicio(opciones);
+            menu_servicio(opciones,deuda_servicio);
         }
         return "";
     }
+        public String pagar_impuestos(double deuda, double saldo_en_cuenta, boolean pagado){
+        Scanner entrada = new Scanner(System.in);
+        if (deuda > saldo_en_cuenta){
+            System.out.println("Ha excedido su monto en cuenta");
+        } else if (deuda <= saldo_en_cuenta){
+            System.out.println("Su deuda es de: $"+deuda);
+            System.out.println("El saldo en su cuenta es de "+saldo_en_cuenta);
+            System.out.println("Marque 1 si desea pagar este servicio");
+            int opcion = Integer.parseInt(entrada.nextLine());
+                    Impuestos.saldo_en_cuenta -= deuda;
+                    Impuestos.pagado = true;
+            if (opcion == 1){
+                System.out.println("Ha pagado el servicio");
+
+        } else {
+            System.out.println("El ingreso no es válido");
+        }
+        System.out.println("Para volver al menú presione \"0\"");
         
-    
-    
+        }
+        return "";
+    }
 }
 
