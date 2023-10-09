@@ -36,4 +36,11 @@ public class Encapsulamiento {
     public void setEliminado(boolean eliminado){
         this.eliminado = eliminado;
     }
+
+    public String toString(){//Convierte en una cadena cada atributo
+        return "Persona [Nombre: nombre: "+this.nombre+
+                ",sueldo: "+this.sueldo+
+                ",eliminado: "+this.eliminado+"]";   
+
+    }
 }
