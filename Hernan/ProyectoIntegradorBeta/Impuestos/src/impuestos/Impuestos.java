@@ -7,5 +7,15 @@ import java.util.Scanner;
 public class Impuestos {
     Scanner entrada = new Scanner(System.in);
     // Atributos
-    private static double saldo_en_cuenta = 10000.00;
+    double deuda;
+    boolean pagado;
+    
+    public Impuestos(double deuda, boolean pagado){
+        this.deuda = deuda;
+        this.pagado = pagado;
+
+    }
+    
+    
 }
+
