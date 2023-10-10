@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Impuestos {
     Scanner entrada = new Scanner(System.in);
-    Random aleatorio = new Random();
+    
     // Atributos
     private double deuda;
     private boolean pagado;
@@ -16,8 +16,8 @@ public class Impuestos {
     public Impuestos(double deuda, boolean pagado){
         this.deuda = deuda;
         this.pagado = pagado;
-
     }
+    
 
     public double getDeuda() {
         return deuda;
@@ -39,7 +39,7 @@ public class Impuestos {
     public String toString() {
         return "Impuestos{" + "deuda=" + deuda + ", pagado=" + pagado + '}';
     }
-    
-    
+        
+
 }
 

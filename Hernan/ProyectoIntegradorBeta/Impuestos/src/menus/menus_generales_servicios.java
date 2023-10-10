@@ -1,11 +1,15 @@
 
 package menus;
 
+import impuestos.Impuestos;
+import java.util.Random;
 import java.util.Scanner;
 import test.PruebaImpuesto;
 import monto_en_cuenta. *;
+import pago_impuestos.*;
 
 public class menus_generales_servicios {
+    Random aleatorio = new Random();
     // Función de menú general
     public static void menu(){
         Scanner entrada = new Scanner(System.in);
@@ -65,10 +69,20 @@ public class menus_generales_servicios {
                 System.out.println(servicios[i]);
             }
             int opcion3 = Integer.parseInt(entrada.nextLine());
-            pagar_impuesto();
+            pagar_impuestos.pago(monto_en_cuenta.saldo);
         }
     
-    public static void pagar_impuesto(){
-        System.out.println("El saldo en su cuenta es de "+ monto_en_cuenta.saldo_cuenta);
-    }
+    double deuda_luz = aleatorio.nextDouble()*9999;
+        double deuda_agua = aleatorio.nextDouble()*9999;
+        double deuda_gas = aleatorio.nextDouble()*9999;
+        double deuda_internet = aleatorio.nextDouble()*9999;
+
+    Impuestos Luz = new Impuestos(deuda_luz, false);
+    Impuestos Gas = new Impuestos(deuda_gas, false);
+    Impuestos Agua = new Impuestos(deuda_agua, false);
+    Impuestos Internet = new Impuestos(deuda_internet, false);
+    
+    monto_en_cuenta saldo = new monto_en_cuenta();
+    
+    
 }

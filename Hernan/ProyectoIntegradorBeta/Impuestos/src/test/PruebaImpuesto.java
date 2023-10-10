@@ -12,9 +12,7 @@ public class PruebaImpuesto {
         Random aleatorio = new Random();
         
         // Objetos
-        
-           
-        menus_generales_servicios.menu();
+        menus.menus_generales_servicios.menu();
     }
 //    // Función de menú general
 //    static void menu(){
