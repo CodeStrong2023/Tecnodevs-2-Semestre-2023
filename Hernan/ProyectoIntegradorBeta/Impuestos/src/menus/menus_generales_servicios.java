@@ -8,13 +8,14 @@ import java.util.Scanner;
 import test.PruebaImpuesto;
 import monto_en_cuenta. *;
 import pago_impuestos.*;
+import matriz.*;
 
 public class menus_generales_servicios {
     Random aleatorio = new Random();
     // Función de menú general
     public static void menu(){
         Scanner entrada = new Scanner(System.in);
-        
+        System.out.println("\n---------------------------------------------------------------\n");
         
         int opcion;
         do{
@@ -26,15 +27,17 @@ public class menus_generales_servicios {
             opcion = Integer.parseInt(entrada.nextLine());
             switch (opcion){
                 case 1:
-                    
+                    matriz.MostrarDeuda.mostrar_deuda(); break;
                 case 2:
                     menu_servicio();break;
             }
         }while (opcion != 0); 
+        System.out.println("\n---------------------------------------------------------------\n");
     }
     
     // Función de menú de servicios
     public static void menu_servicio(){
+        System.out.println("\n---------------------------------------------------------------\n");
         Scanner entrada = new Scanner(System.in);
         String[] prestadores_luz = {"Edemsa","Cooperativa Godoy Cruz"};
         String[] prestadores_agua = {"Aysam"};
@@ -60,11 +63,12 @@ public class menus_generales_servicios {
                
            }
         }while (opcion != 0);
-        
+        System.out.println("\n---------------------------------------------------------------\n");
     }
     
     // función menú de empresas de servicios
     public static void menu_empresa_servicio(String[] servicios, int opcion2){
+        System.out.println("\n---------------------------------------------------------------\n");
         Scanner entrada = new Scanner(System.in);
         int empresa = opcion2;
         System.out.println("Ingrese la prestadora de servicios: ");

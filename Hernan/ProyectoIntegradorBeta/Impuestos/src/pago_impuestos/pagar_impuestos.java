@@ -6,6 +6,7 @@ import java.util.Scanner;
 import monto_en_cuenta. *;
 import menus. *;
 import clases.*;
+import java.text.DecimalFormat;
 
 public class pagar_impuestos {
     Random aleatorio = new Random(9999);
@@ -17,22 +18,25 @@ public class pagar_impuestos {
     
     
     public static void pago(double saldo, double deuda, boolean pagado, int opcion2){
+        System.out.println("\n---------------------------------------------------------------\n");
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
         int empresa = opcion2;
         System.out.println("empresa = " + empresa);
         if (deuda == 0){//if (pagado == true){
             System.out.println("Usted no tiene deuda en el servicio seleccionado");
+            System.out.println("\n---------------------------------------------------------------\n");
         }else{
             Scanner entrada = new Scanner(System.in);
             
-            System.out.println("El saldo en su cuenta es de " + monto_en_cuenta.getSaldo() + "\n");
-            System.out.println("Usted tiene una deuda de $" + deuda);
+            System.out.println("El saldo en su cuenta es de " + decimalFormat.format(monto_en_cuenta.getSaldo()) + "\n");
+            System.out.println("Usted tiene una deuda de $" + decimalFormat.format(deuda));
             System.out.println("¿Desea pagar la deuda completa?");
             System.out.println("\n 1 - Sí \n 2 - No");
             int confirmacion = Integer.parseInt(entrada.nextLine());
             
             if (confirmacion == 1){
             System.out.println("Ha pagado satisfactoriamente el servicio");
-            
+            System.out.println("\n---------------------------------------------------------------\n");
             saldo = monto_en_cuenta.getSaldo();
             saldo -= deuda;
             deuda = 0;
@@ -51,7 +55,7 @@ public class pagar_impuestos {
             }
             monto_en_cuenta.setSaldo(saldo);
             
-            System.out.println("Su monto en cuenta es de: $"+monto_en_cuenta.getSaldo()+"\n"); 
+            System.out.println("Su monto en cuenta es de: $"+decimalFormat.format(monto_en_cuenta.getSaldo())+"\n"); 
         
         //}else{
             
