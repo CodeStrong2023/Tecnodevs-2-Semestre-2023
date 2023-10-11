@@ -18,6 +18,7 @@ public class pagar_impuestos {
     
     
     public static void pago(double saldo, double deuda, boolean pagado, int opcion2){
+        
         System.out.println("\n---------------------------------------------------------------\n");
         DecimalFormat decimalFormat = new DecimalFormat("0.00");
         int empresa = opcion2;

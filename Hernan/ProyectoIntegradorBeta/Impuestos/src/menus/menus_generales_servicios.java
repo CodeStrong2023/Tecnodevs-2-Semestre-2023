@@ -15,6 +15,7 @@ public class menus_generales_servicios {
     // Función de menú general
     public static void menu(){
         Scanner entrada = new Scanner(System.in);
+        
         System.out.println("\n---------------------------------------------------------------\n");
         
         int opcion;
@@ -37,6 +38,7 @@ public class menus_generales_servicios {
     
     // Función de menú de servicios
     public static void menu_servicio(){
+        
         System.out.println("\n---------------------------------------------------------------\n");
         Scanner entrada = new Scanner(System.in);
         String[] prestadores_luz = {"Edemsa","Cooperativa Godoy Cruz"};
@@ -51,7 +53,7 @@ public class menus_generales_servicios {
            System.out.println("2 - Agua");
            System.out.println("3 - Gas");
            System.out.println("4 - Internet");
-           System.out.println("0 - Salir"); 
+           System.out.println("0 - Volver"); 
            opcion = Integer.parseInt(entrada.nextLine());
            int empresa = opcion;
            switch (opcion){
@@ -68,6 +70,7 @@ public class menus_generales_servicios {
     
     // función menú de empresas de servicios
     public static void menu_empresa_servicio(String[] servicios, int opcion2){
+        
         System.out.println("\n---------------------------------------------------------------\n");
         Scanner entrada = new Scanner(System.in);
         int empresa = opcion2;
