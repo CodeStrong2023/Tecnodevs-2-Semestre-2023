@@ -1,7 +1,8 @@
 
 package menus;
 
-import impuestos.Impuestos;
+import clases.Clases;
+import impuesto.*;
 import java.util.Random;
 import java.util.Scanner;
 import test.PruebaImpuesto;
@@ -15,7 +16,7 @@ public class menus_generales_servicios {
         Scanner entrada = new Scanner(System.in);
         
         
-        int opcion = 10;
+        int opcion;
         do{
             System.out.println("Menú de servicios");
             System.out.println("1 - ver estado de deuda");
@@ -40,7 +41,7 @@ public class menus_generales_servicios {
         String[] prestadores_gas = {"Ecogas Cuyana", "Ecogas"};
         String[] prestadores_internet = {"Claro","Movistar","Fibertel"};
         
-        int opcion2 = 11;
+        int opcion2;
         do{
            System.out.println("¿Que servicio desea pagar?");
            System.out.println("1 - Luz");
@@ -69,20 +70,22 @@ public class menus_generales_servicios {
                 System.out.println(servicios[i]);
             }
             int opcion3 = Integer.parseInt(entrada.nextLine());
-            pagar_impuestos.pago(monto_en_cuenta.saldo);
+            pagar_impuestos.pago(monto_en_cuenta.getSaldo(),Clases.Luz.getDeuda());
+                
+            }
         }
+//    
+//        double deuda_luz = aleatorio.nextDouble()*9999;
+//        double deuda_agua = aleatorio.nextDouble()*9999;
+//        double deuda_gas = aleatorio.nextDouble()*9999;
+//        double deuda_internet = aleatorio.nextDouble()*9999;
+//
+//    Impuestos Luz = new Impuestos(deuda_luz, false);
+//    Impuestos Gas = new Impuestos(deuda_gas, false);
+//    Impuestos Agua = new Impuestos(deuda_agua, false);
+//    Impuestos Internet = new Impuestos(deuda_internet, false);
     
-    double deuda_luz = aleatorio.nextDouble()*9999;
-        double deuda_agua = aleatorio.nextDouble()*9999;
-        double deuda_gas = aleatorio.nextDouble()*9999;
-        double deuda_internet = aleatorio.nextDouble()*9999;
+//    monto_en_cuenta saldo = new monto_en_cuenta();
+    
+    
 
-    Impuestos Luz = new Impuestos(deuda_luz, false);
-    Impuestos Gas = new Impuestos(deuda_gas, false);
-    Impuestos Agua = new Impuestos(deuda_agua, false);
-    Impuestos Internet = new Impuestos(deuda_internet, false);
-    
-    monto_en_cuenta saldo = new monto_en_cuenta();
-    
-    
-}

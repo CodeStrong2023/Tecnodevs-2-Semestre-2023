@@ -4,6 +4,8 @@ import java.util.Scanner;
 import impuestos. *;
 import menus.menus_generales_servicios;
 import monto_en_cuenta. *;
+import pago_impuestos.pagar_impuestos;
+import clases. *;
 
 public class PruebaImpuesto {
     
@@ -12,6 +14,9 @@ public class PruebaImpuesto {
         Random aleatorio = new Random();
         
         // Objetos
+        
+    
+    
         menus.menus_generales_servicios.menu();
     }
 //    // Función de menú general
