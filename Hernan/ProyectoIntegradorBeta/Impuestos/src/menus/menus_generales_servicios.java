@@ -41,7 +41,7 @@ public class menus_generales_servicios {
         String[] prestadores_gas = {"Ecogas Cuyana", "Ecogas"};
         String[] prestadores_internet = {"Claro","Movistar","Fibertel"};
         
-        int opcion2;
+        int opcion;
         do{
            System.out.println("¿Que servicio desea pagar?");
            System.out.println("1 - Luz");
@@ -49,28 +49,42 @@ public class menus_generales_servicios {
            System.out.println("3 - Gas");
            System.out.println("4 - Internet");
            System.out.println("0 - Salir"); 
-           opcion2 = Integer.parseInt(entrada.nextLine());
-           switch (opcion2){
-               case 1: menu_empresa_servicio(prestadores_luz); break;
-               case 2: menu_empresa_servicio(prestadores_agua); break;
-               case 3: menu_empresa_servicio(prestadores_gas); break;
-               case 4: menu_empresa_servicio(prestadores_internet); break;
+           opcion = Integer.parseInt(entrada.nextLine());
+           int empresa = opcion;
+           switch (opcion){
+               case 1: menu_empresa_servicio(prestadores_luz, empresa); break;
+               case 2: menu_empresa_servicio(prestadores_agua, empresa); break;
+               case 3: menu_empresa_servicio(prestadores_gas, empresa); break;
+               case 4: menu_empresa_servicio(prestadores_internet, empresa); break;
                default: 
                
            }
-        }while (opcion2 != 0);
+        }while (opcion != 0);
         
     }
     
     // función menú de empresas de servicios
-    public static void menu_empresa_servicio(String[] servicios){
+    public static void menu_empresa_servicio(String[] servicios, int opcion2){
         Scanner entrada = new Scanner(System.in);
+        int empresa = opcion2;
         System.out.println("Ingrese la prestadora de servicios: ");
             for (int i = 0; i<=servicios.length - 1; i++){
-                System.out.println(servicios[i]);
+                System.out.println(i+1+" - "+servicios[i]);
             }
             int opcion3 = Integer.parseInt(entrada.nextLine());
-            pagar_impuestos.pago(monto_en_cuenta.getSaldo(),Clases.Luz.getDeuda());
+            if (empresa == 1){
+                pagar_impuestos.pago(monto_en_cuenta.getSaldo(),Clases.getLuz().getDeuda(), Clases.getLuz().isPagado(), 1);
+            }else if (empresa == 2){
+                pagar_impuestos.pago(monto_en_cuenta.getSaldo(),Clases.getAgua().getDeuda(), Clases.getAgua().isPagado(), 2);
+            }else if (empresa == 3){
+                pagar_impuestos.pago(monto_en_cuenta.getSaldo(),Clases.getGas().getDeuda(), Clases.getGas().isPagado(), 3);
+            }else if (empresa == 4){
+                pagar_impuestos.pago(monto_en_cuenta.getSaldo(),Clases.getInternet().getDeuda(), Clases.getInternet().isPagado(), 4);
+            }
+            
+            
+            
+            
                 
             }
         }

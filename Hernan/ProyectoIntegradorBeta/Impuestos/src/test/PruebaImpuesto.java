@@ -1,22 +1,18 @@
 package test;
-import java.util.Random;
-import java.util.Scanner;
-import impuestos. *;
+import impuesto. *;
 import menus.menus_generales_servicios;
 import monto_en_cuenta. *;
 import pago_impuestos.pagar_impuestos;
 import clases. *;
 
+
 public class PruebaImpuesto {
     
     public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
-        Random aleatorio = new Random();
+        
         
         // Objetos
-        
-    
-    
+
         menus.menus_generales_servicios.menu();
     }
 //    // Función de menú general
