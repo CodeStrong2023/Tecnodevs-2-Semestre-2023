@@ -1,6 +1,9 @@
 
 package monto_en_cuenta;
-
+/*
+Esta clase es para crear un monto en la cuenta. Debe ser reemplazado por el saldo
+que use la aplicación global
+*/
 public class monto_en_cuenta {
     private static double saldo = 50000;
 
