@@ -5,8 +5,8 @@ import clases. *;
 
 public class Impuesto {
     // Atributos
-    private static double deuda;
-    private static boolean pagado;
+    private double deuda;
+    private boolean pagado;
     
     // Constructor vacío
     public Impuesto(){
