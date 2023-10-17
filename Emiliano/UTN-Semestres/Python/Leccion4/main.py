@@ -233,6 +233,9 @@ seRetira = cola.pop(0)
 print(f"Atendido el {seRetira} cliente")
 
 
-
+# Otra manera de recorrer un diccionario
+for i in seleccionArgentina:
+    print(f"{i} --> {seleccionArgentina[i]}")
+    
 
 

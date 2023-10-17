@@ -1,3 +1,5 @@
+import math #Importamos la clase math pata hacer uso de la clase sqrt(raiz cuadrada)
+
 # Ejercicio 1: iterar un rango de 0 a 10 e imprimir numeros divisibles entre 10.
 
 # for i in range(11):
@@ -20,3 +22,10 @@ for numero in tupla:
     if numero < 5:
      lista.append(numero)
 print(lista)
+
+# Ejercicio: Sacar la raiz cuadrada de un numero positivo
+numero = int(input("Coloque un numero: "))
+while numero < 0:
+    print("Incorrecto, debe ser numero positivo")
+    numero = int(input("Coloque un numero positivo: "))
+print(f"\nLa raiz cuadrada es {math.sqrt(numero):.2f}")
