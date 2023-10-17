@@ -42,3 +42,7 @@ Operador de Decremento
 --
 Ejemplo Let z = --a  //Predecremento
 Ejemplo Let z = a--  //Postdecremento
+
+Operadores Lógicos
+And -> && Doble Aspersan
+Or
