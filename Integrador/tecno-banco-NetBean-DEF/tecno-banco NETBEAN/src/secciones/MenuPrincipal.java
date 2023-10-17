@@ -14,7 +14,13 @@ public class MenuPrincipal
     public void Iniciar() {
         System.out.println("¿Que quieres hacer, " + usuario.nombre + "?");
         Menu menu = new Menu(opciones);
-        menu.Iniciar();
+        int opcion = menu.Iniciar();  //añado int opcion en esta sección para usarlo como switch
+        switch (opcion){
+            case 3: {
+                MenuImpuestos menuImpuestos = new MenuImpuestos();
+                menuImpuestos.MenuImpuestos__Inicial();
+            }
+        }
     }
 
     public static String[] opciones = new String [] {
