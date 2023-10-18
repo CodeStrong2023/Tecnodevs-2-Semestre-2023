@@ -1,8 +1,8 @@
 
 package servicios;
-
-public class ConfirmarPagoImpuesto {
-    public void Confirma__Pago(){
+// Esta clase es sólamente para confirmar operaciones
+public class Confirmar {
+    public void ConfirmaContinuar(){
         System.out.println("¿Desea continuar?");
                 String[] confirmacion = new String[]{"Sí","No"};
                 Menu menu__confirmacion = new Menu(confirmacion);
