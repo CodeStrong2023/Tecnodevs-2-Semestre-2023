@@ -15,7 +15,7 @@ public class MenuPrincipal
         System.out.println("¿Que quieres hacer, " + usuario.nombre + "?");
         Menu menu = new Menu(opciones);
         int opcion = menu.Iniciar();  //añado int opcion en esta sección para usarlo como switch
-        switch (opcion){
+        switch (opcion){  // Acá pueden acoplarse el resto de las opciones de TecnoBanco
             case 3: {  // Solamente puse la opción 3 para derivar desde acá. Impuestos correspondería al 3.
                 MenuImpuestos menuImpuestos = new MenuImpuestos();
                 menuImpuestos.MenuImpuestos__Inicial(usuario.cuenta.balance);

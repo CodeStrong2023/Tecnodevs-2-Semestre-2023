@@ -1,52 +1,52 @@
-
 package datos;
 
 import java.util.Random;
 
-// Realizo la creación de los impuestos y les asigno montos aleatorios
 public class Impuestos {
     Random aleatorio = new Random();
-   
-    float Luz = aleatorio.nextFloat()*9999;  // Asigno valores aleatorios a los servicios
-    float Agua = aleatorio.nextFloat()*9999;
-    float Gas = aleatorio.nextFloat()*9999;
-    float Internet = aleatorio.nextFloat()*9999;
+    float Impuesto;  // Atributo
     
-    public float TraerDeuda(int opcion){  // Función que muestra las deudas creadas
-        switch (opcion){
-            case 0:{
-                return Luz;
-            }
-            case 1:{
-                return Gas;
-            }
-            case 2:{
-                return Agua;
-            }
-            case 3:{
-                return Internet;
-            }
-            default: return 0;
-        }
-    } 
-    public void CancelarDeuda(int opcion){  // Función que cancela las deudas dándole valor de 0
-        switch (opcion){
-            case 0:{
-                Luz = 0;
-                break;
-            }
-            case 1:{
-                Gas = 0;
-                break;
-            }
-            case 2:{
-                Agua = 0;
-                break;
-            }
-            case 3:{
-                Internet = 0;
-                break;
-            }
+    public Impuestos() {
+        Impuesto = aleatorio.nextFloat() * 999;  // Hago que el atributo sea aleatorio
+    }
+
+    public static float TraerDeuda(int opcion) {  // función para ver las deudas
+        switch (opcion) {
+            case 0:
+                return Luz.Impuesto;
+            case 1:
+                return Gas.Impuesto;
+            case 2:
+                return Agua.Impuesto;
+            case 3:
+                return Internet.Impuesto;
+            default:
+                return 0;
         }
     }
+
+    public static void CancelarDeuda(int opcion) {  // Función para pagar completo. Pasa a 0 el monto
+         switch (opcion) {
+            case 0:
+                Luz.Impuesto = 0;
+                break;
+            case 1:
+                Gas.Impuesto = 0;
+                break;
+            case 2:
+                Agua.Impuesto = 0;
+                break;
+            case 3:
+                Internet.Impuesto = 0;
+                break;
+            default: break;
+        }
+    }
+
+    // Creo objetos de cada impuesto
+    public static Impuestos Luz = new Impuestos();
+    public static Impuestos Gas = new Impuestos();
+    public static Impuestos Agua = new Impuestos();
+    public static Impuestos Internet = new Impuestos();
+    
 }
