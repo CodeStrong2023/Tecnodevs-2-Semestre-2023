@@ -3,10 +3,10 @@ package domain;
 
 public class Persona {
     // Atributos
-    private String nombre;
-    private char genero;
-    private int edad;
-    private String direccion;
+    protected String nombre;
+    protected char genero;
+    protected int edad;
+    protected String direccion;
     
     /*
     Constructor Vacío: se usa para poder crear objetos sin necesidad de inicializar
@@ -68,7 +68,7 @@ public class Persona {
         sb.append(", ").append(super.toString());
         sb.append('}');
         return sb.toString();
+        
+        //Persona persona1 = new Persona()
     }
-    
-    
 }
