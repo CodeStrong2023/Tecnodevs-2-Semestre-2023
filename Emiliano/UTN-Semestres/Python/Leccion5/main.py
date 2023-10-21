@@ -57,3 +57,30 @@ def listaNombres(*nombres): #Normalmente se utiliza: *args
         print(nombre)
 listaNombres("Lucas","Nicolas","Romina")
 listaNombres("Luis","Julian","Tamara")
+
+def listar_terminos(**terminos): #lo mas utilizado es **kwargs para recibor argumentos
+    for llave, valor in terminos.items():# kwargs significa: key word argument
+        print(f"{llave} : {valor}")
+
+listar_terminos(IDE = "IDE", PK = "PK")
+listar_terminos(NOMBRE = "EMi")
+
+def desplegarNombres(nombres):
+    for nom in nombres:
+        print(nom)
+nombre2 = ["Tito","Pedro"]
+desplegarNombres(nombre2)
+desplegarNombres("Carla")
+desplegarNombres((10,))# ((La convertimos en una tupla))
+desplegarNombres([22,44])# ([La convertimos en una lista])
+
+#FUnciones recursivas
+def factorial(numero):
+    if numero == 1:
+        return 1
+    else:
+        return numero * factorial(numero-1)#Caso recursivo
+    
+nume = int(input("Coloque el numero: "))
+resultado = factorial(nume)
+print(f"El factorial del numero {nume} es: {resultado}")
