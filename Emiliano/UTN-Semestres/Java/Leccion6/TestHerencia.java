@@ -10,5 +10,7 @@ public class TestHerencia {
         Cliente cliente1 = new Cliente(fecha1, true, "Mario", "M", 32, "9 de Julio 1413");
         System.out.println("Cliente1 =" + cliente1);
         */
+        // Persona persona1 = new Persona();
+
     }
 }
