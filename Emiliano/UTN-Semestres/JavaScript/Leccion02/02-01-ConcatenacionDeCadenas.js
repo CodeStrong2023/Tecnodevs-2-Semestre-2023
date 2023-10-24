@@ -12,3 +12,9 @@ juntos = 79 + 12 + nombre;
 console.log(juntos);
 nombre += apellido; // concatenamos usando el operador simplificado
 console.log(nombre);
+
+let x, y; //Se puede crear varias variables dentro de una misma linea
+x = 10, y = 20; //Se puede hacer asignacion de varias variables dento de la misma linea
+let z = x + y;
+console.log(z);
+

@@ -1,22 +1,27 @@
 Sintaxis similares entre Java y JavaSctript
 
-Operadores Simplificados:
+Operadores Simplificados / Compuestos:
 +=
 -=
 *=
 /=
+%=
+**=
 
 Operadores Aritmeticos:
 +
 -
 *
 /
+%    //Reciduo
+**   //Exponente
 
 Operadores de asignacion:
 =
 
-Operadores de comparacion:
-==
+Operadores de comparacion(Bool):
+==  Revisa el valor sin importar el tipo de dato
+=== Revisa el valor y tambien el tipo
 
 Documentar:
 // = Para una linea de comentario
@@ -33,6 +38,20 @@ Secuencias de escape:
 
 Operador de aumento:
 ++
+Ejemplo: Let z = ++a; //PreIncremento
+Ejemplo: z = a++; //PosIncremento
 
 Operador de decremento:
 --
+Ejemplo: Let z = --a; //PreDecremento
+Ejemplo: z = a--; //PosDecremento
+
+Operador Distinto, Diferente(Bool):
+!=  //Comprueba valores sin revisar el tipo
+!==  //Comprueba el valor y tambien el tipo
+
+Operadores Relacionales(Bool):
+>
+<
+>=
+<=
