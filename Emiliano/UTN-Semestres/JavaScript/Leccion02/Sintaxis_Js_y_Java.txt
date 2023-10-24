@@ -1,0 +1,38 @@
+Sintaxis similares entre Java y JavaSctript
+
+Operadores Simplificados:
++=
+-=
+*=
+/=
+
+Operadores Aritmeticos:
++
+-
+*
+/
+
+Operadores de asignacion:
+=
+
+Operadores de comparacion:
+==
+
+Documentar:
+// = Para una linea de comentario
+/* */ = Para multiples lineas de comentario
+
+Secuencias de escape:
+\" = Mostrar una comilla simple dentro de una cadena en la salida de informacion
+\\ = Barra invertida, es para mostrar una back slash
+\n = Salto de linea 
+\r = Retorno
+\t = Tabulacion
+\b = Retroceso
+\f = Salto de pagina
+
+Operador de aumento:
+++
+
+Operador de decremento:
+--
