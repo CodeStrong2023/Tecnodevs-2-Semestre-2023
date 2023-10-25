@@ -18,3 +18,7 @@ x = 10, y = 20; //Se puede hacer asignacion de varias variables dento de la mism
 let z = x + y;
 console.log(z);
 
+let nombre2 = "Lola";
+const apellido2 = "Ares";
+// apellido2 = "Peres";   una constante no puede ser modificada
+console.log(apellido2);

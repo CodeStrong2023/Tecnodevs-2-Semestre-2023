@@ -55,3 +55,7 @@ Operadores Relacionales(Bool):
 <
 >=
 <=
+
+Operadores Logicos:
+And   ->  &&
+Or    ->  
