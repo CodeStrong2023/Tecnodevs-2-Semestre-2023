@@ -20,4 +20,5 @@ profundidad = int(input("Coloque la profundidad del cubo: "))
 
 cubo1 = Cubo(ancho, altura, profundidad)
 print(f"El volumen del cubo es: {cubo1.calcular_volumen()}")
+
         
