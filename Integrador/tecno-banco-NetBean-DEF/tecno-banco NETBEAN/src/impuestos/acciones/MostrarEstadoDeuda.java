@@ -24,7 +24,7 @@ public class MostrarEstadoDeuda {
 }
     
         public void MostrarMatriz(float cuenta) {  // Código para imprimir una matriz.
-            System.out.println("\tEl monto en su cuenta es"+formato.format(cuenta));
+            System.out.println("\tEl monto en su cuenta es: $"+formato.format(cuenta));
         for (int i = 0; i < Servicio__Deuda.length; i++) {
             for (int j = 0; j < Servicio__Deuda[i].length; j++) {
                 System.out.print(Servicio__Deuda[i][j] + "\t\t"); 

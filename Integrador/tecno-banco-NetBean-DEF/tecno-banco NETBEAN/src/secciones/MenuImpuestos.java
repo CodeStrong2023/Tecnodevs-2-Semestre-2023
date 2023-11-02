@@ -25,7 +25,9 @@ public class MenuImpuestos {
                     case 1: {System.out.println("Ha elegido pagar un impuesto/servicio");
                             MenuImpuestos__Impuestos(balance); break;}
 
-                    case 2:  ; break;  // Con esta opción se sale del programa completamente
+                    case 2: MenuAutenticacion volver = new MenuAutenticacion();
+                            volver.Iniciar();
+                            break;  // Con esta opción se sale del programa completamente
                 }
     }
     
