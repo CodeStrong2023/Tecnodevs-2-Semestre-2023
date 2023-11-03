@@ -1,6 +1,6 @@
 package Java.Leccion9;
 
-public class TestsArreglosObject {
+public class TestArreglosObject {
     public static void main(String[] args) {
         Persona personas[] = new Persona[2];
         personas[0] = new Persona("Ariel");
