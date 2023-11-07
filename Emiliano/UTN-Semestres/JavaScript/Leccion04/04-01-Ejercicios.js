@@ -56,3 +56,99 @@ switch(mes){
         estacion = "Valor incorrecto";
 }
 console.log("Estacion elejida: "+estacion);
+
+//Ejercicio
+
+let days = "miercoles";
+switch(days){
+    case "lunes":
+        console.log("hoy es "+days);
+        break;
+    case "martes":
+        console.log("hoy es "+days);
+        break;
+    case "miercoles":
+        console.log("hoy es "+days);
+        break;
+    case "jueves":
+        console.log("hoy es "+days);
+        break;
+    case "viernes":
+        console.log("hoy es "+days);
+        break;
+    case "sabado":
+        console.log("hoy es "+days);
+        break;
+    case "domingo":
+        console.log("hoy es "+days);
+        break;
+    default:
+        console.log("Error en el ingreso de dias");
+        break;
+}
+
+//Version mejorada del ejercicio
+
+let days2 = ["lunes","martes","miercoles","jueves","sabado","domingo"];
+function getDay(n){
+    if(n < 1 || n > 7){
+        throw new Error("fuera de rango");
+    }
+    return days[n-1];
+}
+console.log(getDay(5));
+
+//Ejercicio: hacer el mismo ejercicio anterior pero con meses del año
+
+let meses = "marzo";
+switch(meses){
+    case "enero":
+        console.log("hoy es "+meses);
+        break;
+    case "febrero":
+        console.log("hoy es "+meses);
+        break;
+    case "marzo":
+        console.log("hoy es "+meses);
+        break;
+    case "abril":
+        console.log("hoy es "+meses);
+        break;
+    case "mayo":
+        console.log("hoy es "+meses);
+        break;
+    case "junio":
+        console.log("hoy es "+meses);
+        break;
+    case "julio":
+        console.log("hoy es "+meses);
+        break;
+    case "agosto":
+        console.log("hoy es "+meses);
+        break;
+    case "septiembre":
+        console.log("hoy es "+meses);
+        break;
+    case "octubre":
+        console.log("hoy es "+meses);
+        break;
+    case "noviembre":
+        console.log("hoy es "+meses);
+        break;
+    case "diciembre":
+        console.log("hoy es "+meses);
+        break;
+    default:
+        console.log("Error en el ingreso del mes");
+        break;
+}
+//Version mejorada del ejercicio de meses del año
+
+let meses2 = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+function getMeses2(n){
+    if(n < 1 || n > 12){
+        throw new Error("fuera de rango");
+    }
+    return meses2[n-1];
+}
+console.log(getDay(6));
