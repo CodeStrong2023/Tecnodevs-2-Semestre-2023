@@ -1,59 +1,48 @@
-package dominio;
+package domain;
+
 
 public class Persona {
-    //Atributos
+    private int idPersona;
+    private static int contadorPersona;
     private String nombre;
-    private double sueldo;
-    private boolean eliminado;
-
-    //Contructor
-    public Persona(String nombre, double sueldo, boolean eliminado){
+ 
+    //Constructor
+    public Persona(String nombre){
         this.nombre = nombre;
-        this.sueldo = sueldo;
-        this.eliminado = eliminado;
+        //Incrementar el contador por cada objeto nuevo
+        Persona.contadorPersona++;//No utilizar el oprador this
+        // Nuevo valor a la variable idPersona
+        this.idPersona = Persona.contadorPersona;
+    }
+
+    public static int getContadorPersona(){
+        return contadorPersona;
+    }
+
+    public static void setContadorPersona(int aContadorPersona){
+        contadorPersona = aContadorPersona;
+    }
+
+    public int getIdPersona(){
+        return this.idPersona;
+    }
+
+    public void setIdPersona(int idPersona){
+        this.idPersona = idPersona;
     }
 
     public String getNombre(){
-        return nombre;
+        return this.nombre;
     }
 
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
 
-    public double getSueldo(){
-        return sueldo;
-    }
-
-    public void setSueldo(double sueldo){
-        this.sueldo = sueldo;
-    }
-
-    public boolean isEliminado(){
-        return eliminado;
-    }
-
-    public void setEliminado(boolean eliminado){
-        this.eliminado = eliminado;
-    }
-
     @Override
-    public String toString(){//Convierte en una cadena cada atributo
-        return "Persona [Nombre: nombre: "+this.nombre+
-                ",sueldo: "+this.sueldo+
-                ",eliminado: "+this.eliminado+"]";   
-
-    }
-
-    public void getNombre(String melina) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void getSueldo(double d) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void isEliminado(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public String toString(){
+        return "Persona{" + "idPersona ="+idPersona+",nombre="+nombre+"}";
+   
 }
+}
+
