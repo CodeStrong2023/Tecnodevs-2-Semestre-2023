@@ -52,3 +52,67 @@ switch(mes){
     default: mensaje = "un valor ingresado no es correcto"
 }
 console.log("El ingreso corresponde a "+mensaje)
+
+
+// Evitar repetir tu código
+// Try don´t repeat yourself
+
+let days = 8;
+
+switch (days) {
+    case 1:
+        console.log('Hoy es: Lunes');
+        break;
+    case 2:
+        console.log('Hoy es: Martes');
+        break;
+    case 3:
+        console.log('Hoy es: Miercoles');
+        break;
+    case 4:
+        console.log('Hoy es: Jueves');
+        break;
+    case 5:
+        console.log('Hoy es: Viernes');
+        break;
+    case 6:
+        console.log('Hoy es: Sabado');
+        break;
+    case 7:
+        console.log('Hoy es: Domingo');
+        break;
+
+    default:
+        console.log('Error en el ingreso del día de la semana');
+        break;
+}
+
+let days2 = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"];
+
+function getDay(n){
+    if (n < 1 || n > 7){
+        throw new Error('Out of range');
+    }
+    return days2[n-1];
+}
+console.log(getDay(3))
+
+
+let mes2 = 7
+
+switch(mes2){
+    case 12, 1, 2: mensaje = "Verano"; break;
+    case 3, 4, 5: mensaje = "Otoño"; break;
+    case 6, 7, 8: mensaje = "Invierno"; break;
+    case 9, 10, 11: mensaje = "Primavera"; break;
+    default: mensaje = "un valor ingresado no es correcto"
+}
+console.log("El ingreso corresponde a "+mensaje)
+
+
+
+function estacionAño(mes2){
+    let estaciones = ["Verano","Verano", "Otoño","Otoño","Otoño", "Invierno","Invierno","Invierno" ,"Primavera","Primavera","Primavera","Verano"]
+    return estaciones[mes2-1]
+}
+console.log(estacionAño(6))
