@@ -1,7 +1,10 @@
 package secciones;
 
 import datos.Usuarios;
+import modelos.ETarjeta;
+import modelos.Tarjeta;
 import modelos.Usuario;
+import servicios.Finanzas;
 import servicios.Formulario;
 import servicios.Menu;
 import servicios.Sistema;
@@ -94,7 +97,16 @@ public class MenuAutenticacion {
                 System.out.println("Ya existe un usuario con ese DNI");
         } while (formatoIncorrecto || repetido);
 
-        Usuario usuario = new Usuario(nombre, clave, dni, 0);
+        // ALIAS Y CBU ------------------------------
+        String alias = Finanzas.GenerarAlias();
+        int cbu = Finanzas.GenerarCBU();
+        System.out.println("Se ha generado un usuario.");
+        System.out.println("Se te ha creado una cuenta de ahorro " + ETarjeta.VISA + " con las siguientes propiedades:");
+        System.out.println("ALIAS: " + alias);
+        System.out.println("CBU: " + cbu);
+        Sistema.Pausar();
+
+        Usuario usuario = new Usuario(nombre, clave, dni, new Tarjeta(), alias, cbu);
         System.out.println("Bienvenido " + nombre + " a TecnoBanco! Ahora puedes iniciar sesion");
 
         Usuarios.AgregarUsuario(usuario);

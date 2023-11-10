@@ -1,9 +1,10 @@
 package servicios;
 
 import datos.Usuarios;
-import modelos.Cuenta;
-import modelos.Usuario;
+import modelos.*;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class Finanzas {
@@ -25,8 +26,37 @@ public class Finanzas {
         Usuario usuario = Sistema.getUsuario();
 
         Sistema.Separar();
-        System.out.println(usuario.nombre + ": $" + usuario.cuenta.balance + "ARS");
+        System.out.println(usuario.nombre + ": $" + usuario.cuenta.getBalance() + "ARS");
         Sistema.Separar();
+    }
+
+    public static void MostrarTarjeta(ETarjeta tipo, boolean mostrarMovimientos) {
+        Tarjeta tarjeta = Sistema.getCuenta().obtenerTarjeta(tipo);
+
+        if (tarjeta == null) {
+            System.out.println("No tienes una tarjeta de tipo " + tipo);
+            return;
+        }
+
+        System.out.println("Tarjeta " + tipo);
+
+        if (mostrarMovimientos) {
+            List<Movimiento> movimientos = tarjeta.getMovimientos();
+
+            for (int i = 0; i < movimientos.stream().count(); i++) {
+                Movimiento movimiento = movimientos.get(i);
+                System.out.println(movimiento.nombre + ": " + movimiento.monto);
+            }
+            Sistema.Pausar();
+            System.out.println("Monto: " + tarjeta.monto);
+            Sistema.Pausar();
+        } else {
+            System.out.println("Monto: " + tarjeta.monto);
+        }
+    }
+
+    public static void MostrarTarjeta(ETarjeta tipo) {
+       MostrarTarjeta(tipo, false);
     }
 
     public static void MostrarCuenta(boolean pausar) {
@@ -77,5 +107,8 @@ public class Finanzas {
 
         objetivo.setBalance(objetivo.getBalance() + cantidad);
         origen.setBalance(origen.getBalance() - cantidad);
+
+        origen.obtenerTarjeta(ETarjeta.VISA).sumarMovimiento("Transferencia a " + objetivo.usuario.nombre, cantidad);
+        objetivo.obtenerTarjeta(ETarjeta.VISA).sumarMovimiento("Transferencia de " + origen.usuario.nombre, cantidad);
     }
 }

@@ -1,5 +1,6 @@
 package secciones;
 
+import modelos.ETarjeta;
 import modelos.Usuario;
 import servicios.Finanzas;
 import servicios.Menu;
@@ -36,11 +37,18 @@ public class MenuPrincipal
                 //new MenuExtraccion();
                 break;
             case 2:
-                Finanzas.MostrarCuenta(true);
+                Finanzas.MostrarTarjeta(ETarjeta.VISA);
+                Sistema.Pausar();
+                Finanzas.MostrarTarjeta(ETarjeta.MASTERCARD);
+                Sistema.Pausar();
+                Finanzas.MostrarTarjeta(ETarjeta.AEXPRESS);
+                Sistema.Pausar();
                 break;
             case 3:
                 new MenuImpuestos();
                 break;
+            case 4:
+                new MenuAdministracion();
             default:
                 Main.Reiniciar();
         }

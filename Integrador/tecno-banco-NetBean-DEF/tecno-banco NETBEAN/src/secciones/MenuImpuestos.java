@@ -82,7 +82,7 @@ public class MenuImpuestos {
 
         System.out.println("Su empresa prestadora de gas es "+prestadores[opcion]);
         System.out.println("Usted tiene deuda de $"+dosDecimales.format(Impuestos.TraerDeuda(opcion)));
-        System.out.println("El saldo en su cuenta es de $"+dosDecimales.format(Sistema.getCuenta().balance));
+        System.out.println("El saldo en su cuenta es de $"+dosDecimales.format(Sistema.getCuenta().getBalance()));
 
         boolean confirma = Confirmar.ConfirmaContinuar();
         if (confirma){

@@ -12,7 +12,7 @@ public class PagarDeuda {
     }
     
     public static void Pago(int opcion){  // Recibe la opcion del switch (para elegir el impuesto y el prestador) y el balsance
-        float balance = Sistema.getCuenta().balance;
+        float balance = Sistema.getCuenta().getBalance();
 
         if (Impuestos.TraerDeuda(opcion) == 0){  // De haber pagado ya la cuenta
             System.out.println("No tiene deuda en este servicio");

@@ -23,9 +23,8 @@ public class Usuarios {
         Random random = new Random();
 
         for (int i = 0; i < ListaDeCredenciales.length; i++) {
-            float balanceInicial = new Random().nextFloat() * 2000;
             int dni = Integer.parseInt(ListaDeCredenciales[i][2]);
-            ListaDeUsuarios[i] = new Usuario(ListaDeCredenciales[i][0], ListaDeCredenciales[i][1], dni, balanceInicial);
+            ListaDeUsuarios[i] = new Usuario(ListaDeCredenciales[i][0], ListaDeCredenciales[i][1], dni);
         }
     }
 
