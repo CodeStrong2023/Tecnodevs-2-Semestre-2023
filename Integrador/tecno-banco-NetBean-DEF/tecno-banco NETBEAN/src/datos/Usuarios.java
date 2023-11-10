@@ -2,11 +2,13 @@ package datos;
 
 import modelos.Usuario;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class Usuarios {
-    private final static String[][] ListaDeCredenciales = new String[][] {
+    private static String[][] ListaDeCredenciales = new String[][] {
             {"Federico", "matear23", "43855842"},
             {"Eugenia", "chamuyo45", "44336433"},
             {"Martin", "asado67", "43822232"},
@@ -16,57 +18,57 @@ public class Usuarios {
             {"Lucas", "futbol34", "51233354"}
     };
 
-    public static Usuario[] ListaDeUsuarios;
+    public static List<Usuario> ListaDeUsuarios = new ArrayList<>();
 
     public static void Iniciar() {
-        ListaDeUsuarios = new Usuario[ListaDeCredenciales.length];
-        Random random = new Random();
-
-        for (int i = 0; i < ListaDeCredenciales.length; i++) {
-            int dni = Integer.parseInt(ListaDeCredenciales[i][2]);
-            ListaDeUsuarios[i] = new Usuario(ListaDeCredenciales[i][0], ListaDeCredenciales[i][1], dni);
+        for (String[] credencial : ListaDeCredenciales) {
+            int dni = Integer.parseInt(credencial[2]);
+            Usuario usuario = new Usuario(credencial[0], credencial[1], dni);
+            ListaDeUsuarios.add(usuario);
         }
     }
 
+    public static void AgregarUsuario(String nombre, String clave, int dni) {
+        Usuario nuevoUsuario = new Usuario(nombre, clave, dni);
+        ListaDeUsuarios.add(nuevoUsuario);
+    }
+
+    public static void AgregarUsuario(Usuario usuario) {
+        ListaDeUsuarios.add(usuario);
+    }
+
     public static Usuario ObtenerPorDni(int dni) {
-        return Arrays.stream(ListaDeUsuarios)
-                .filter(usuario -> usuario.dni == dni)
+        return ListaDeUsuarios.stream()
+                .filter(usuario -> usuario.getDni() == dni) // assuming getDni() is the getter for DNI
                 .findFirst()
                 .orElse(null);
     }
 
     public static Usuario ObtenerPorNombre(String nombre) {
-        return Arrays.stream(ListaDeUsuarios)
-                .filter(usuario -> usuario.nombre == nombre)
+        return ListaDeUsuarios.stream()
+                .filter(usuario -> usuario.getNombre().equals(nombre)) // assuming getNombre() is the getter for name
                 .findFirst()
                 .orElse(null);
     }
 
     public static Usuario ObtenerPorAlias(String alias) {
-        return Arrays.stream(ListaDeUsuarios)
-                .filter(usuario -> usuario.cuenta.alias == alias)
+        return ListaDeUsuarios.stream()
+                .filter(usuario -> usuario.getCuenta().getAlias().equals(alias)) // assuming getAlias() is the getter for alias
                 .findFirst()
                 .orElse(null);
     }
 
     public static Usuario ObtenerPorCbu(int cbu) {
-        return Arrays.stream(ListaDeUsuarios)
-                .filter(usuario -> usuario.cuenta.cbu == cbu)
+        return ListaDeUsuarios.stream()
+                .filter(usuario -> usuario.getCuenta().getCbu() == cbu) // assuming getCbu() is the getter for CBU
                 .findFirst()
                 .orElse(null);
     }
 
     public static Usuario Autenticar(String nombre, String clave) {
-        for (Usuario usuario : ListaDeUsuarios) {
-            if (usuario.nombre.equals(nombre) && usuario.clave.equals(clave))
-                return usuario;
-        }
-
-        return null;
-    }
-
-    public static void AgregarUsuario(Usuario usuario) {
-        ListaDeUsuarios = Arrays.copyOf(ListaDeUsuarios, ListaDeUsuarios.length + 1);
-        ListaDeUsuarios[ListaDeUsuarios.length - 1] = usuario;
+        return ListaDeUsuarios.stream()
+                .filter(usuario -> usuario.getNombre().equals(nombre) && usuario.getClave().equals(clave))
+                .findFirst()
+                .orElse(null);
     }
 }

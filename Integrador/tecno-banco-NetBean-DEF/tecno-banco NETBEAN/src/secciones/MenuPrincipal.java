@@ -34,7 +34,7 @@ public class MenuPrincipal
                 new MenuTransferencia();
                 break;
             case 1:
-                //new MenuExtraccion();
+                new MenuExtraccion();
                 break;
             case 2:
                 Finanzas.MostrarTarjeta(ETarjeta.VISA);

@@ -11,6 +11,38 @@ public class Cuenta {
     public String alias;
     public int cbu;
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Tarjeta[] getTarjetas() {
+        return tarjetas;
+    }
+
+    public void setTarjetas(Tarjeta[] tarjetas) {
+        this.tarjetas = tarjetas;
+    }
+
+    public String getAlias() {
+        return alias;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+
+    public int getCbu() {
+        return cbu;
+    }
+
+    public void setCbu(int cbu) {
+        this.cbu = cbu;
+    }
+
     public Cuenta(Usuario usuario) {
         this.tarjetas = new Tarjeta[] {
                 new Tarjeta(ETarjeta.VISA),

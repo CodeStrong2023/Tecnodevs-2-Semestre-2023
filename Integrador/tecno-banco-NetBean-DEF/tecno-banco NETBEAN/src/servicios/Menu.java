@@ -15,35 +15,47 @@ public class Menu {
         this.opciones = opciones;
     }
 
+
     public int Iniciar() {
-        char entrada;
+        String entrada;
         do {
             Sistema.Separar();
             MostrarTitulo();
             MostrarMenu();
             MostrarControles();
-            entrada = scanner.next().charAt(0);
-            switch (entrada) {
-                case 'w':
-                    if (opcionElegida == 0) {
-                        opcionElegida = opciones.length - 1;
-                    } else {
-                        opcionElegida--;
-                    }
-                    break;
-                case 's':
-                    if (opcionElegida == opciones.length - 1) {
-                        opcionElegida = 0;
-                    } else {
-                        opcionElegida++;
-                    }
-                    break;
+            entrada = scanner.nextLine().toLowerCase();
+
+            // Procesa la entrada para 'w' y 's'
+            for (char ch : entrada.toCharArray()) {
+                switch (ch) {
+                    case 'w':
+                        if (opcionElegida == 0) {
+                            opcionElegida = opciones.length - 1;
+                        } else {
+                            opcionElegida--;
+                        }
+                        break;
+                    case 's':
+                        if (opcionElegida == opciones.length - 1) {
+                            opcionElegida = 0;
+                        } else {
+                            opcionElegida++;
+                        }
+                        break;
+                }
             }
-        } while (entrada == 'w' || entrada == 's');
+
+            for (int i = 0; i < opciones.length; i++) {
+                if (entrada.equalsIgnoreCase(opciones[i])) {
+                    opcionElegida = i;
+                    return opcionElegida;
+                }
+            }
+
+        } while (entrada.chars().allMatch(ch -> ch == 'w' || ch == 's'));
 
         return opcionElegida;
     }
-
     private void MostrarTitulo() {
         System.out.println(titulo);
     }

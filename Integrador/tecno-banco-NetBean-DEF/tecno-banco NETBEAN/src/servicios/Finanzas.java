@@ -8,7 +8,18 @@ import java.util.List;
 import java.util.Random;
 
 public class Finanzas {
-    private static final String[] PALABRAS = {"alfa", "beta", "gamma", "delta", "echo"}; // Add more words as needed
+    private static final String[] PALABRAS = {
+            "norte", "sur", "este", "oeste", "sol", "luna",
+            "planeta", "cometa", "galaxia", "estrella", "meteorito",
+            "oceano", "rio", "montaña", "valle", "desierto",
+            "bosque", "jungla", "pradera", "volcan", "cascada",
+            "ciudad", "villa", "pueblo", "metropoli", "capital",
+            "viajero", "navegante", "explorador", "pionero", "aventurero",
+            "artista", "poeta", "musico", "pintor", "escultor",
+            "ciencia", "tecnologia", "innovacion", "investigacion", "descubrimiento",
+            "historia", "mitologia", "leyenda", "fábula", "cuento",
+            "armonia", "paz", "serenidad", "tranquilidad", "quietud"
+    };
 
     public static String GenerarAlias() {
         Random random = new Random();
@@ -19,7 +30,7 @@ public class Finanzas {
 
 
     public static int GenerarCBU() {
-        return new Random().nextInt();
+        return Sistema.GenerarNumeroEntero(6);
     }
 
     public static void MostrarCuenta() {
@@ -28,6 +39,16 @@ public class Finanzas {
         Sistema.Separar();
         System.out.println(usuario.nombre + ": $" + usuario.cuenta.getBalance() + "ARS");
         Sistema.Separar();
+    }
+
+    public static void Extraer(float cantidad) {
+        Tarjeta visa = Sistema.getCuenta().obtenerTarjeta(ETarjeta.VISA);
+
+        if (visa.monto - cantidad < 0)
+            cantidad = visa.monto;
+
+        visa.monto -= cantidad;
+        visa.sumarMovimiento("Extraccion", cantidad);
     }
 
     public static void MostrarTarjeta(ETarjeta tipo, boolean mostrarMovimientos) {
@@ -39,6 +60,8 @@ public class Finanzas {
         }
 
         System.out.println("Tarjeta " + tipo);
+        System.out.println("CBU:" + Sistema.getCuenta().cbu);
+        System.out.println("Alias:" + Sistema.getCuenta().alias);
 
         if (mostrarMovimientos) {
             List<Movimiento> movimientos = tarjeta.getMovimientos();

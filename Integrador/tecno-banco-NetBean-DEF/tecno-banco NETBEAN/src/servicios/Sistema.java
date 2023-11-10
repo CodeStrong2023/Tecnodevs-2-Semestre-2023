@@ -3,6 +3,7 @@ package servicios;
 import modelos.Cuenta;
 import modelos.Usuario;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Sistema {
@@ -19,6 +20,14 @@ public class Sistema {
     }
 
     public static Usuario usuario;
+
+    public static int GenerarNumeroEntero(int digitos) {
+        Random random = new Random();
+        int minimo = (int)Math.pow(10, digitos - 1);
+        int maximo = (int)Math.pow(10, digitos) - 1;
+
+        return minimo + random.nextInt(maximo - minimo + 1);
+    }
 
     public static void Separar() {
         System.out.println("--- --- --- --- ---");

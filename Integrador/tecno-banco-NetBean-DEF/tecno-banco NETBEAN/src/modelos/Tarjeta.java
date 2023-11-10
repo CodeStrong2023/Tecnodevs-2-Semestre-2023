@@ -1,10 +1,8 @@
 package modelos;
 
 import datos.Movimientos;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
+
+import java.util.*;
 
 public class Tarjeta {
     public ETarjeta tipo;
@@ -22,7 +20,7 @@ public class Tarjeta {
     public Tarjeta() {
         this.tipo = ETarjeta.VISA;
         this.monto = 0;
-        this.movimientos = Movimientos.GenerarMovimientos();
+        this.movimientos = new ArrayList<>();
     }
 
     public Movimiento sumarMovimiento(String titulo, float monto) {
