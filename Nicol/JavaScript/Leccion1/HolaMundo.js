@@ -1,4 +1,3 @@
-
-var nombre = "Ariel"; //Las vairables pueden cambiar de manera DINÁMICA
+var nombre = "Ariel"; 
 nombre = "Hola Mundo desde JavaScript"
 console.log(nombre);
