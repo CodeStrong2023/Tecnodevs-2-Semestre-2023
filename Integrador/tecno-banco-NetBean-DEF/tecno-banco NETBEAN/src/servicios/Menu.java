@@ -4,9 +4,14 @@ import java.util.Scanner;
 public class Menu {
     private final Scanner scanner = new Scanner(System.in);
     private final String[] opciones;
+    private String titulo = "TecnoBanco";
     private int opcionElegida = 0;
 
     public Menu(String[] opciones) {
+        this.opciones = opciones;
+    }
+    public Menu(String[] opciones, String titulo) {
+        this.titulo = titulo;
         this.opciones = opciones;
     }
 
@@ -14,6 +19,7 @@ public class Menu {
         char entrada;
         do {
             Sistema.Separar();
+            MostrarTitulo();
             MostrarMenu();
             MostrarControles();
             entrada = scanner.next().charAt(0);
@@ -36,6 +42,10 @@ public class Menu {
         } while (entrada == 'w' || entrada == 's');
 
         return opcionElegida;
+    }
+
+    private void MostrarTitulo() {
+        System.out.println(titulo);
     }
 
     private void MostrarMenu() {

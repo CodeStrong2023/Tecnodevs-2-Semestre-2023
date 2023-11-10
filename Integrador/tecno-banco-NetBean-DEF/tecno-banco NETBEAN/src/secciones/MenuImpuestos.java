@@ -8,31 +8,40 @@ import impuestos.acciones.PagarDeuda;
 import servicios.Confirmar;
 
 public class MenuImpuestos {
+
+    public MenuImpuestos() {
+        this.Iniciar();
+    }
     
-    public void MenuImpuestos__Inicial(float balance){
+    public void Iniciar() {
         String[] seleccion = new String[]{  // Array de opciones
             "Ver estado de deuda",
             "Pagar un servicio/impuesto",
             "Volver"
         };
-        Menu menu = new Menu(seleccion);  // Creo un objeto del elemento menú para poder llamar la función que da formato
-            int opcion = menu.Iniciar();  // A la vez de ejecutarlo, se guarda el índice del array como entero para ser usado en un switch
-            MostrarEstadoDeuda matriz = new MostrarEstadoDeuda();  // Creo el objeto de la clase MostraEstadoDeuda para llamar la función MostrarMatriz
-                switch(opcion){  // Según el índice del String[]
-                    case 0: {System.out.println("Su estado de cuenta es:"); 
-                            matriz.MostrarMatriz(balance);
-                            MenuImpuestos__Inicial(balance); break;}  // Uso recursividad para volver al menú inicial
-                    case 1: {System.out.println("Ha elegido pagar un impuesto/servicio");
-                            MenuImpuestos__Impuestos(balance); break;}
 
-                    case 2: MenuAutenticacion volver = new MenuAutenticacion();
-                            volver.Iniciar();
-                            break;  // Con esta opción se sale del programa completamente
-                }
+        Menu menu = new Menu(seleccion, "Servicios");  // Creo un objeto del elemento menú para poder llamar la función que da formato
+
+        int opcion = menu.Iniciar();  // A la vez de ejecutarlo, se guarda el índice del array como entero para ser usado en un switch
+
+        MostrarEstadoDeuda matriz = new MostrarEstadoDeuda();  // Creo el objeto de la clase MostraEstadoDeuda para llamar la función MostrarMatriz
+
+        switch(opcion) {
+                case 0:
+                    Finanzas.MostrarCuenta();
+                    Iniciar();
+                    break;
+                case 1:
+                    MenuImpuestos__Impuestos();
+                    break;
+                default:
+        }
+
+        MenuPrincipal.instancia.Iniciar();
     }
     
     
-    public void MenuImpuestos__Impuestos(float balance){  // dejo el balance para cuando sea usado
+    public void MenuImpuestos__Impuestos(){  // dejo el balance para cuando sea usado
         
         String[] impuestos = new String[]{  // String para ser usado en el menú de Federico
             "Luz",
@@ -47,40 +56,40 @@ public class MenuImpuestos {
         
         switch(opcion){
             case 0: 
-                PagoImpuestoParticular(opcion, balance);  // Funcion para pagar
+                PagoImpuestoParticular(opcion);  // Funcion para pagar
                 break;
             case 1: 
-                PagoImpuestoParticular(opcion, balance);
+                PagoImpuestoParticular(opcion);
                 break;
             case 2: 
-                PagoImpuestoParticular(opcion, balance);
+                PagoImpuestoParticular(opcion);
                 break;
             case 3: 
-                PagoImpuestoParticular(opcion, balance);
+                PagoImpuestoParticular(opcion);
                 break;
-            case 4: MenuImpuestos__Inicial(balance);
-                    break;
-            default: break;
+            default:
+                Iniciar();
         }
     }
-    public void PagoImpuestoParticular(int opcion, float balance){
-                DecimalFormat dosDecimales = new DecimalFormat("0.00");  //Creo objeto para que solo se muestren dos decimales
-                String[] prestadores = new String[]{  // String para ser usado en el menú de Federico
-                "Edemsa",
-                "Ecogas",
-                "Aysam",
-                "Claro",
-            };
-            System.out.println("Su empresa prestadora de gas es "+prestadores[opcion]);
-                    System.out.println("Usted tiene deuda de $"+dosDecimales.format(Impuestos.TraerDeuda(opcion)));
-                    System.out.println("El saldo en su cuenta es de $"+dosDecimales.format(balance));
-                    boolean confirma = Confirmar.ConfirmaContinuar();
-                    if (confirma == true){
-                        PagarDeuda.Pago(opcion, balance);  // Función de pago
-                        Impuestos.CancelarDeuda(opcion);  // Función complementaria que pone la deuda en cero directo (Para evitar errores)   
-                    } else {
-                        MenuImpuestos__Inicial(balance);  // Vuelve al menú de impuestos
-                    }
-                    
-            }
+    public void PagoImpuestoParticular(int opcion) {
+        DecimalFormat dosDecimales = new DecimalFormat("0.00");  //Creo objeto para que solo se muestren dos decimales
+        String[] prestadores = new String[]{  // String para ser usado en el menú de Federico
+        "Edemsa",
+        "Ecogas",
+        "Aysam",
+        "Claro",
+        };
+
+        System.out.println("Su empresa prestadora de gas es "+prestadores[opcion]);
+        System.out.println("Usted tiene deuda de $"+dosDecimales.format(Impuestos.TraerDeuda(opcion)));
+        System.out.println("El saldo en su cuenta es de $"+dosDecimales.format(Sistema.getCuenta().balance));
+
+        boolean confirma = Confirmar.ConfirmaContinuar();
+        if (confirma){
+            PagarDeuda.Pago(opcion);  // Función de pago
+            Impuestos.CancelarDeuda(opcion);  // Función complementaria que pone la deuda en cero directo (Para evitar errores)
+        } else {
+            Iniciar();  // Vuelve al menú de impuestos
+        }
+    }
 }

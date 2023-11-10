@@ -1,28 +1,51 @@
 package secciones;
 
 import modelos.Usuario;
+import servicios.Finanzas;
 import servicios.Menu;
+import servicios.Sistema;
+import test.Main;
 import transferencia.*;
 
 public class MenuPrincipal
 {
-    Usuario usuario;
+    public static MenuPrincipal instancia;
 
-    public MenuPrincipal(Usuario usuario) {
-        this.usuario = usuario;
+    public static MenuPrincipal getInstancia() {
+        if (instancia == null)
+            instancia = new MenuPrincipal();
+
+        return instancia;
+    }
+
+    public MenuPrincipal() {
+        if (instancia == null)
+            instancia = this;
     }
 
     public void Iniciar() {
-        System.out.println("¿Que quieres hacer, " + usuario.nombre + "?");
-        Menu menu = new Menu(opciones);
-        int opcion = menu.Iniciar();  //añado int opcion en esta sección para usarlo como switch
-        switch (opcion){  // Acá pueden acoplarse el resto de las opciones de TecnoBanco
-            case 0: transferencia.monto.OpcionesTransferencia(); break;
-            case 3: {  // Solamente puse la opción 3 para derivar desde acá. Impuestos correspondería al 3.
-                MenuImpuestos menuImpuestos = new MenuImpuestos();
-                menuImpuestos.MenuImpuestos__Inicial(usuario.cuenta.balance); break;
-            }
+        System.out.println("¿Que quieres hacer, " + Sistema.getUsuario().nombre + "?");
+        Menu menu = new Menu(opciones, "Homebanking");
+        int opcion = menu.Iniciar();
+
+        switch (opcion){
+            case 0:
+                new MenuTransferencia();
+                break;
+            case 1:
+                //new MenuExtraccion();
+                break;
+            case 2:
+                Finanzas.MostrarCuenta(true);
+                break;
+            case 3:
+                new MenuImpuestos();
+                break;
+            default:
+                Main.Reiniciar();
         }
+
+        Iniciar();
     }
 
     public static String[] opciones = new String [] {
@@ -30,6 +53,7 @@ public class MenuPrincipal
             "Realizar una extraccion",
             "Consultar saldo",
             "Pagar impuestos",
-            "Administrar tarjeta/s"
+            "Administrar tarjeta/s",
+            "Salir"
     };
 }
