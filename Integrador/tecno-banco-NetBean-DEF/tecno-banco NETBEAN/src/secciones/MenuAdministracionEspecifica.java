@@ -36,9 +36,11 @@ public class MenuAdministracionEspecifica {
         switch (opcionElegida) {
             case 0:
                 Finanzas.MostrarTarjeta(tipo, false);
+                Sistema.Pausar();
                 break;
             case 1:
                 Finanzas.MostrarTarjeta(tipo, true);
+                Sistema.Pausar();
                 break;
         }
     }
