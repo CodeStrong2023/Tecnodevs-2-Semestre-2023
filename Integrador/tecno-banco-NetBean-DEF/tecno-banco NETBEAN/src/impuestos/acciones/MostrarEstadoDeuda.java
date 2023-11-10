@@ -23,8 +23,8 @@ public class MostrarEstadoDeuda {
     Servicio__Deuda[1][3] = formato.format(Impuestos.Internet.TraerDeuda(3));
 }
     
-        public void MostrarMatriz(float cuenta) {  // Código para imprimir una matriz.
-            System.out.println("\tEl monto en su cuenta es: $"+formato.format(cuenta));
+        public void MostrarMatriz() {  // Código para imprimir una matriz.
+            //System.out.println("\tEl monto en su cuenta es: $"+formato.format(cuenta));
         for (int i = 0; i < Servicio__Deuda.length; i++) {
             for (int j = 0; j < Servicio__Deuda[i].length; j++) {
                 System.out.print(Servicio__Deuda[i][j] + "\t\t"); 

@@ -28,7 +28,7 @@ public class MenuImpuestos {
 
         switch(opcion) {
                 case 0:
-                    Finanzas.MostrarCuenta();
+                    matriz.MostrarMatriz();
                     Iniciar();
                     break;
                 case 1:
@@ -80,7 +80,7 @@ public class MenuImpuestos {
         "Claro",
         };
 
-        System.out.println("Su empresa prestadora de gas es "+prestadores[opcion]);
+        System.out.println("Su empresa prestadora de servicio es "+prestadores[opcion]);
         System.out.println("Usted tiene deuda de $"+dosDecimales.format(Impuestos.TraerDeuda(opcion)));
         System.out.println("El saldo en su cuenta es de $"+dosDecimales.format(Sistema.getCuenta().getBalance()));
 
