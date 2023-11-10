@@ -1,7 +1,5 @@
 # Llenar una lista:
-# con números del 1 al 50,
-# mostrar la lista con el ciclo For
-# deben mostrarse de la siguiente manera: 1-2-3... etc
+# con números del 1 al 50, mostrar la lista con el ciclo For deben mostrarse de la siguiente manera: 1-2-3... etc
 
 """
 lista = []
